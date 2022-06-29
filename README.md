@@ -6,6 +6,10 @@ A simple and fast encrypt-decrypt web application built with SvelteJS.
  - Bulma CSS https://bulma.io/
  - CryptoJS https://openbase.com/js/crypto-js
 
+## Deployments
+ - https://www.midhunhk.com/cryptx-web/
+ - https://cryptx-web.pages.dev/
+
 ## License
 MIT License
 
