@@ -49,19 +49,40 @@
 			outputTextArea =  originalText
 		}
 	}
+
+	const copyLeft = () => {
+		inputTextArea = outputTextArea
+		outputTextArea = ''
+	}
+
+	const copyClipboard = () => {
+		if(navigator.clipboard){
+			navigator.clipboard.writeText(outputTextArea)
+		}
+	}
+
+	const clearBoxes = () => {
+		inputTextArea = ''
+		outputTextArea = ''
+		key = ''
+	}
 </script>
 
 <main class="has-background-black-ter has-text-white is-fullheight">
 	
 	<div class="container">
 		<div class="section">
-			<h1 class="is-size-1 is-capitalized has-text-weight-light has-text-danger has-text-centered">CryptX Web</h1>
+			<h1 class="is-size-1 is-capitalized has-text-weight-light has-text-danger has-text-centered">CryptX Web
+				<a href="https://github.com/midhunhk/cryptx-web" target="_blank" title="See Source">
+					<img src="icon_github.svg" alt="">
+				</a>
+			</h1>
 			<div class="py-4 has-text-centered">
 				<p class="is-size-6">This is an app which can easily encrypt and decrypt text message using AES algorithm.
 					<br/>The processing is done on the client side, so no data that you enter is sent through the network.</p>
 			</div>
 
-			<div class="columns is-centered my-1">
+			<div class="columns is-centered is-vcentered my-1">
 				<div class="column is-5">
 					<div class="has-text-centered py-2">
 						<p class="is-size-4">Input</p>
@@ -73,13 +94,32 @@
 					</div>
 				</div>
 
+				<div class="column is-1">
+					<div class="has-text-centered py-2">
+						<p class="is-size-4">&nbsp;</p>
+					</div>
+					<div class="action-buttons">
+						<button class="button is-outlined is-danger" on:click={copyLeft}>
+							<img src="icon_arrow_left.svg" alt="copy to left" title="Copy to Left">														
+						</button>
+
+						<button class="button is-outlined is-danger" on:click={copyClipboard}>
+							<img src="icon_clipboard.svg" alt="copy to clipboard" title="Copy to Clipboard">							
+						</button>
+
+						<button class="button is-outlined is-danger" on:click={clearBoxes}>
+							<img src="icon_clear.svg" alt="clear textboxes" title="Reset fields">
+						</button>
+					</div>
+				</div>
+
 				<div class="column is-5">
 					<div class="has-text-centered py-2">
 						<p class="is-size-4">Output</p>
 					</div>
 					<div class="field">
 						<div class="control">
-						  <textarea class="textarea is-medium has-background-white-bis" placeholder="Output will appear here" bind:value={outputTextArea} readonly></textarea>
+						  <textarea class="textarea is-medium has-background-grey-light" placeholder="Output will appear here" bind:value={outputTextArea} readonly></textarea>
 						</div>
 					</div>
 				</div>
