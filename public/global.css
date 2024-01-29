@@ -62,6 +62,9 @@ button:focus {
 	border-color: #666;
 }
 
+#app {
+	height: 100vh;
+}
 .action-buttons{
 	display: flex;
 	flex-direction: column;
